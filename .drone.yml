@@ -11,9 +11,9 @@ pipeline:
     repo: kradalby/map.kradalby.no
     container: [map]
     namespace: default
-    kubernetes_server: $KUBERNETES_SERVER
-    kubernetes_cert: $KUBERNETES_CERT
-    kubernetes_token: $KUBERNETES_TOKEN
+    kubernetes_server: ${KUBERNETES_SERVER}
+    kubernetes_cert: ${KUBERNETES_CERT}
+    kubernetes_token: ${KUBERNETES_TOKEN}
     tag:                 
         - "${DRONE_TAG}"
     when:
