@@ -2,7 +2,7 @@ pipeline:
   build:
     image: plugins/docker
     repo: kradalby/map.kradalby.no
-    auto_tag: true
+    # auto_tag: true
     secrets: [ docker_username, docker_password ]
     tags:
       - "${DRONE_COMMIT}"
@@ -13,7 +13,7 @@ pipeline:
     repo: kradalby/map.kradalby.no
     container: map
     namespace: default
-    secret: [kubernetes_server, kubernetes_cert, kubernetes_token, kubernetes_user]
+    secret: [ kubernetes_server, kubernetes_cert, kubernetes_token, kubernetes_user ]
     tag:                 
       - "${DRONE_COMMIT}"
         
