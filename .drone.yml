@@ -5,6 +5,18 @@ pipeline:
     auto_tag: true
     secrets: [ docker_username, docker_password ]
 
+  deploy:
+    image: quay.io/honestbee/drone-kubernetes
+    deployment: map-kradalby-no-deployment
+    repo: kradalby/map.kradalby.no
+    container: [map]
+    namespace: default
+    tag:                 
+        - "${DRONE_TAG}"
+    when:
+        event: tag
+        
+
   notify:
     image: drillster/drone-email
     host: mail.ntnu.fap.no
