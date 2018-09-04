@@ -16,7 +16,6 @@ pipeline:
     when:
         event: tag
         
-
   notify:
     image: drillster/drone-email
     host: mail.ntnu.fap.no
