@@ -13,7 +13,7 @@ pipeline:
     repo: kradalby/map.kradalby.no
     container: map
     namespace: default
-    secret: [kubernetes_server, kubernetes_cert, kubernetes_token]
+    secret: [kubernetes_server, kubernetes_cert, kubernetes_token, kubernetes_user]
     tag:                 
       - "${DRONE_COMMIT}"
         
