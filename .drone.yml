@@ -5,7 +5,8 @@ pipeline:
     # auto_tag: true
     secrets: [ docker_username, docker_password ]
     tags:
-      - "${DRONE_COMMIT}"
+        - latest
+        - ${DRONE_COMMIT_SHA:0:8} 
 
   deploy:
     image: quay.io/honestbee/drone-kubernetes
@@ -15,7 +16,7 @@ pipeline:
     namespace: default
     secret: [ kubernetes_server, kubernetes_cert, kubernetes_token, kubernetes_user ]
     tag:                 
-      - "${DRONE_COMMIT}"
+      - ${DRONE_COMMIT_SHA:0:8}
         
   notify:
     image: drillster/drone-email
