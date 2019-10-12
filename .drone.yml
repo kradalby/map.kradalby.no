@@ -1,7 +1,7 @@
 pipeline:
   build:
     image: plugins/docker
-    repo: kradalby/map.kradalby.no
+    repo: kradalby/map
     # auto_tag: true
     secrets: [ docker_username, docker_password ]
     tags:
@@ -11,7 +11,7 @@ pipeline:
   deploy:
     image: quay.io/honestbee/drone-kubernetes
     deployment: map-kradalby-no-deployment
-    repo: kradalby/map.kradalby.no
+    repo: kradalby/map
     container: map
     namespace: map-kradalby-no
     secrets: [ kubernetes_server, kubernetes_cert, kubernetes_token, kubernetes_user ]
