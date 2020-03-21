@@ -36,7 +36,7 @@ steps:
       KUBERNETES_TOKEN:
         from_secret: kubernetes_token
     commands:
-      - kubectl -n map set image deployment/map map=kradalby/map:${DRONE_COMMIT_SHA:0:8} --record
+      - kubectl -n map set image deployment/map common=kradalby/map:${DRONE_COMMIT_SHA:0:8} --record
       - kubectl -n map rollout status deployment map
     when:
       branch:
