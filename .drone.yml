@@ -8,7 +8,7 @@ node_selector:
 
 steps:
   - name: build
-    pull: if-not-exists
+    pull: always
     image: banzaicloud/drone-kaniko
     settings:
       repo: kradalby/map
