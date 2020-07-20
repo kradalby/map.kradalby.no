@@ -78,7 +78,13 @@
          "name": "Publish to GitHub Pages",
          "pull": "always",
          "settings": {
-            "pages_directory": ""
+            "pages_directory": "dist",
+            "password": {
+               "from_secret": "gh_token"
+            },
+            "username": {
+               "from_secret": "gh_username"
+            }
          },
          "when": {
             "branch": [
@@ -177,5 +183,24 @@
    },
    "kind": "secret",
    "name": "docker_password"
+}
+---
+{
+   "token": {
+      "get": {
+         "name": "token",
+         "path": "gh-pages-push"
+      },
+      "kind": "secret",
+      "name": "gh_token"
+   },
+   "username": {
+      "get": {
+         "name": "username",
+         "path": "gh-pages-push"
+      },
+      "kind": "secret",
+      "name": "gh_username"
+   }
 }
 ...
